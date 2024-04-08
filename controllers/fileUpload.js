@@ -25,7 +25,9 @@ const checkextension=(fptype,supportExtensions)=>{
 }
 
 const cloudUpload=async(file,folder)=>{
-    return await cloudinary.uploader.upload(file.tempFilePath,{folder});
+    const options={folder};
+    options.resource_type="auto"; 
+    return await cloudinary.uploader.upload(file.tempFilePath,options);
 
 }
 exports.imageupload=async(req,res)=>{
